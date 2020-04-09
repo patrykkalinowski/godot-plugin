@@ -134,6 +134,7 @@ func _on_Download_pressed():
 	var path_idx = download_url.find("/", host_idx)
 	var host = download_url.substr(host_idx, path_idx - host_idx)
 	var path = download_url.right(path_idx)
+	host = host.replace(":443", "").replace(":80","")
 
 	downloader = Requestor.new(host, true)
 
